@@ -344,7 +344,7 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 12, vars: 1, consts: [[1, "container"], [1, "main-content"], [1, "header"], ["id", "title"], [1, "logo"], ["id", "attribution"], ["href", "https://pixabay.com", "target", "_blank"], ["src", "../assets/img/logo.png", 1, "pixabayLogo"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 12, vars: 1, consts: [[1, "container"], [1, "main-content"], [1, "header"], ["id", "title"], [1, "logo"], ["id", "attribution"], ["href", "https://pixabay.com", "target", "_blank"], ["src", "./assets/img/logo.png", 1, "pixabayLogo"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
