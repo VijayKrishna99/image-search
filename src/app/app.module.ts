@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ImageListComponent } from './image-list/image-list.component';
 import { TestComponent } from './test/test.component';
 
+import { InfiniteScrollModule }  from 'ngx-infinite-scroll';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +25,8 @@ import { MaterialModule } from './material/material.module';
     FormsModule,
     HttpClientModule,
     NgxMasonryModule,
-    MaterialModule
+    MaterialModule,
+    InfiniteScrollModule
   ],
   providers: [ImagesearchService],
   bootstrap: [AppComponent]

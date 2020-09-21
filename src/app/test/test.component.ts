@@ -7,9 +7,9 @@ import { ImagesearchService } from '../imagesearch.service';
 })
 export class TestComponent implements OnInit {
   
-
+  addvalue: boolean = false;
   query: string;
-  images: any[];
+  images: any = [];
   imagesFound: boolean = false;
   searching: boolean = false;
   page: number = 1;
@@ -18,9 +18,12 @@ export class TestComponent implements OnInit {
   constructor(private _imageService:ImagesearchService){}
   
   handleSuccess(data){
-    this.imagesFound = true;
-    this.images = data.hits;
+
+      this.images.push(...data.hits);
+   // this.images = [...data.hits];
+    this.imagesFound = true;    
     console.log(data.hits);
+    console.log(this.images);
   }
   
   previousPage(){
@@ -42,6 +45,11 @@ export class TestComponent implements OnInit {
   }
 
   SearchImages(query){
+    if(query==''){
+      this.addvalue=true;
+    }
+    else
+    {    
     this.searching = true;
     this.query=query;
     return this._imageService.getImage(encodeURIComponent(query)+this.pagenourl).subscribe(
@@ -49,6 +57,7 @@ export class TestComponent implements OnInit {
       error => this.handleError(error),
       () => this.searching = false
     )
+    }
   }
   
 

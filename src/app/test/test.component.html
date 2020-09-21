@@ -5,15 +5,19 @@
     <br>
     <button (click)="SearchImages(searchquery.value)"
       mat-raised-button class="searchButton" type="button">Find Images</button>
-    <button *ngIf="imagesFound"(click)="nextPage()" mat-raised-button class="searchButton">Next Page</button>
-    <button *ngIf="this.page>1" (click)="previousPage()" mat-raised-button class="searchButton">previous Page</button>
-    
+  <!--  <button *ngIf="imagesFound"(click)="nextPage()" mat-raised-button class="searchButton">Next Page</button>
+    <button *ngIf="this.page>1" (click)="previousPage()" mat-raised-button class="searchButton">previous Page</button> -->
+    <div *ngIf="addvalue">Enter an item to search</div>
 </mat-card>
   
   <div *ngIf="searching">
     <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
   </div>
-<mat-card *ngIf="imagesFound">
+<mat-card *ngIf="imagesFound"
+      infiniteScroll
+      [infiniteScrollDistance]="1"
+      [infiniteScrollThrottle]="3000"
+      (scrolled)="nextPage()">
     <h4 *ngIf="imagesFound" mat-subeader>Results</h4>
     <ngx-masonry>
       <div ngxMasonryItem *ngFor="let image of images" class="image-container">
@@ -21,7 +25,7 @@
           <a href="{{ image.pageURL }}" target="_blank">
             <mat-card-header>
               <div class="avatar" mat-card-avatar [ngStyle]="{'background-image':'url('+ image.userImageURL +')', 'background-size':'40px 40px'}"></div>
-              <mat-card-title>User: {{ image.user }}</mat-card-title>
+              <mat-card-title>{{'@'+ image.user }}</mat-card-title>
             </mat-card-header>
             <img mat-card-image src="{{image.webformatURL}}">
             <mat-card-content>
